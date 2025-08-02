@@ -156,35 +156,31 @@
 
   <div id="message"></div>
 
-  <script>
-    const messages = [
-      "Mukololo Tumi, you’re doing better than you think. I’m proud of you. 🌸",
-      "Easter Egg, I Really Like You.Wehhh am i cooked chat.",
-      "Rest isn’t weakness. It’s healing. Take your time. 💗",
-      "You're beautiful. Like, unfairly beautiful. Inside and out.",
-      "Mukololo: the sweetest soul and the deadliest CoD player I know 🎮❤️",
-      "I’d hug you so tight right now. No words. Just us. 🫂",
-      "That voice of yours? It’s still stuck in my head. Still flawless.",
-      "I’m just really glad you exist. Don’t forget that."
-    ];
+ <script>
+  const messages = [
+    "Mukololo Tumi, you’re doing better than you think. I’m proud of you. 🌸",
+    "Easter Egg, I Really Like You. Wehhh am I cooked, chat.",
+    "Rest isn’t weakness. It’s healing. Take your time. 💗",
+    "You're beautiful. Like, unfairly beautiful. Inside and out.",
+    "Mukololo: the sweetest soul and the deadliest CoD player I know 🎮❤️",
+    "I’d hug you so tight right now. No words. Just us. 🫂",
+    "That voice of yours? It’s still stuck in my head. Still flawless.",
+    "I’m just really glad you exist. Don’t forget that."
+  ];
 
-    function showMessage() {
-      const msg = messages[Math.floor(Math.random() * messages.length)];
-      document.getElementById('message').textContent = msg;
-    }
+  // Retrieve index from localStorage or start at 0
+  let currentIndex = parseInt(localStorage.getItem('msgIndex')) || 0;
 
-    // Generate floating hearts
-    for (let i = 0; i < 20; i++) {
-      const heart = document.createElement('div');
-      heart.classList.add('floating-heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDelay = (Math.random() * 6) + 's';
-      heart.style.animationDuration = (4 + Math.random() * 3) + 's';
-      document.body.appendChild(heart);
-    }
-  </script>
+  // Show the current message
+  document.getElementById("message").textContent = messages[currentIndex];
+
+  // Increment and save for next time
+  currentIndex = (currentIndex + 1) % messages.length;
+  localStorage.setItem('msgIndex', currentIndex);
+</script>
 
 </body>
 </html>
+
 
 
